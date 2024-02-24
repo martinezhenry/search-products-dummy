@@ -1,8 +1,15 @@
 package application
 
-import "fmt"
+import (
+	"net/http"
+
+	"github.com/martinezhenry/search-products-dummy/internal/handlers"
+)
 
 // Run execute the application
 func Run() {
-	fmt.Println("Hello World from Go")
+	
+	http.HandleFunc("/ping", handlers.PingHandler)
+	http.ListenAndServe(":8080", nil)
+
 }
